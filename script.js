@@ -1,7 +1,7 @@
 // Recorder's elements
 let audioElement = document.getElementById('audio');
-let recordButton = document.getElementById('record-button');
-let stopButton = document.getElementById('stop-button');
+let resumeButton = document.getElementById('resume-button');
+let pauseButton = document.getElementById('pause-button');
 
 // Save all the recordings
 let chunks = [];
@@ -16,8 +16,8 @@ const getMedia = async () => {
   mediaRecorder = new MediaRecorder(mediaStream);
 
   // Handle buttons clicked after get the media stream
-  recordButton.onclick = startRecording;
-  stopButton.onclick = stopRecording;
+  resumeButton.onclick = resumeRecording;
+  pauseButton.onclick = pauseRecording;
 
   // Handle Blob data after it being made available for use
   mediaRecorder.ondataavailable = saveCurrentRecording;
@@ -27,30 +27,28 @@ const getMedia = async () => {
 };
 
 // Handle record button clicked
-const startRecording = () => {
+const resumeRecording = () => {
   mediaRecorder.start();
 
-  recordButton.innerHTML = 'Resume';
-  recordButton.style.border = '2px red solid';
-  recordButton.style.background = 'rgba(255, 0, 0, 0.15)';
-  recordButton.style.color = 'red';
+  resumeButton.disabled = true;
+  resumeButton.style.display = 'none';
 
-  recordButton.disabled = true;
-  recordButton.style.display = 'none';
+  pauseButton.disabled = false;
+  pauseButton.style.display = 'block';
 
   stopButton.disabled = false;
   stopButton.style.display = 'block';
 };
 
 // Handle stop button clicked
-const stopRecording = () => {
+const pauseRecording = () => {
   mediaRecorder.stop();
 
-  recordButton.disabled = false;
-  recordButton.style.display = 'block';
+  resumeButton.disabled = false;
+  resumeButton.style.display = 'block';
 
-  stopButton.disabled = true;
-  stopButton.style.display = 'none';
+  pauseButton.disabled = true;
+  pauseButton.style.display = 'none';
 };
 
 const saveCurrentRecording = (e) => {
