@@ -1,0 +1,22 @@
+audio,
+button {
+  margin: 0 auto;
+  display: block;
+}
+
+button {
+  border-radius: 9999px;
+  padding: 1rem;
+  min-width: 7rem;
+
+  margin-top: 1rem;
+
+  text-transform: uppercase;
+}
+
+#record-button {
+}
+
+#stop-button {
+  display: none;
+}
