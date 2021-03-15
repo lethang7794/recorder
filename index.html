@@ -7,10 +7,14 @@
   <title>Recorder</title>
 
   <link rel="stylesheet" href="style.css">
-</head>
+  <link </head>
 
 <body>
   <div id="App">
+    <div style="position: relative;">
+      <div style="position: absolute; top: -1rem; font-size: 1.5rem" class="time" id="display">00:00:00</div>
+    </div>
+
     <button id="start-button" class="flex-center">
       <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="circle" role="img"
         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-circle fa-w-16 fa-4x"
@@ -19,8 +23,8 @@
         </path>
       </svg>
     </button>
-    <button id="resume-button" disabled>Resume</button>
-    <button id="pause-button" disabled>
+
+    <button id="stop-button" disabled>
       <div class="wrapper">
         <span style="color: red;">
           <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="pause"
