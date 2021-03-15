@@ -7,16 +7,36 @@
   <title>Recorder</title>
 
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+    integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
 </head>
 
 <body>
-  <audio id="audio" src="" controls></audio>
   <div>
-    <button id="resume-button">Resume</button>
-    <button id="pause-button" disabled>Pause</button>
+    <button id="start-button" class="flex-center">
+      <i class="fas fa-circle" style="color: red; font-size: 2.5rem;"></i>
+    </button>
+    <button id="resume-button" disabled>Resume</button>
+    <button id="pause-button" disabled>
+      <div class="wrapper">
+        <span style="color: red;">
+          <i class="fas fa-pause fa-2x"></i>
+        </span>
+      </div>
+    </button>
   </div>
-
+  <audio id="audio" src="" controls></audio>
   <script src="script.js"></script>
 </body>
 
 </html>
+
+<!-- TODO: Add recording indicator -->
+<!-- https://codepen.io/vram1980/pen/Kyaie -->
+<!-- https://jsfiddle.net/mdz87jy1/ -->
+
+<!-- TODO: Add timing bar -->
+
+
+<!-- TODO: Add icon -->
+<!-- https://icons.getbootstrap.com/ -->

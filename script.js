@@ -1,5 +1,6 @@
 // Recorder's elements
 let audioElement = document.getElementById('audio');
+let startButton = document.getElementById('start-button');
 let resumeButton = document.getElementById('resume-button');
 let pauseButton = document.getElementById('pause-button');
 
@@ -27,6 +28,21 @@ const getMedia = async () => {
 };
 
 // Handle record button clicked
+const startRecording = async () => {
+  await getMedia();
+
+  mediaRecorder.start();
+
+  startButton.disabled = false;
+  startButton.style.display = 'none';
+
+  resumeButton.disabled = true;
+  resumeButton.style.display = 'none';
+
+  pauseButton.disabled = false;
+  pauseButton.style.display = 'block';
+};
+
 const resumeRecording = () => {
   mediaRecorder.start();
 
@@ -36,8 +52,8 @@ const resumeRecording = () => {
   pauseButton.disabled = false;
   pauseButton.style.display = 'block';
 
-  stopButton.disabled = false;
-  stopButton.style.display = 'block';
+  audioElement.pause();
+  audioElement.style.display = 'none';
 };
 
 // Handle stop button clicked
@@ -49,6 +65,8 @@ const pauseRecording = () => {
 
   pauseButton.disabled = true;
   pauseButton.style.display = 'none';
+
+  audioElement.style.display = 'block';
 };
 
 const saveCurrentRecording = (e) => {
@@ -62,9 +80,6 @@ const sendToMediaPlayer = () => {
   });
   const audioURL = URL.createObjectURL(blob);
   audioElement.src = audioURL;
-
-  //clear the recorded chunks if preferred
-  // chunks = [];
 };
 
-getMedia();
+startButton.onclick = startRecording;
