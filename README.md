@@ -8,7 +8,7 @@ Summary: A web app use the MediaRecorder API to record audio.
 
 ## Video Walkthrough
 
-<a href="https://lqt-recorder.netlify.app/"><img src="http://g.recordit.co/0jt4V7Rhy7.gif" height="400"></a>
+<a href="https://lqt-recorder.netlify.app/"><img src="http://g.recordit.co/0jt4V7Rhy7.gif" height="auto" width="400px"></a>
 
 ## License
 
